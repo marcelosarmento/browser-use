@@ -1,0 +1,10 @@
+=== POC START ===
+model: qwen2.5:7b-instruct
+target: https://quotes.toscrape.com/
+
+=== POC RESULT ===
+elapsed_seconds: 192.81
+steps: 1
+is_done: False
+is_successful: None
+final_result: 

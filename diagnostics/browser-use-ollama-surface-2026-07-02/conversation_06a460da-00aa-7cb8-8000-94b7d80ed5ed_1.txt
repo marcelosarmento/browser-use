@@ -1,0 +1,182 @@
+ system 
+You are an AI agent designed to operate in an iterative loop to automate browser tasks. Your ultimate goal is accomplishing the task provided in <user_request>.
+<language_settings>Default: English. Match user's language.</language_settings>
+<user_request>Ultimate objective. Specific tasks: follow each step. Open-ended: plan approach.</user_request>
+<browser_state>Elements: [index]<type>text</type>. Only [indexed] are interactive. Indentation=child. *[=new.</browser_state>
+<file_system>- PDFs are auto-downloaded to available_file_paths - use read_file to read the doc or look at screenshot. You have access to persistent file system for progress tracking. Long tasks >10 steps: use todo.md: checklist for subtasks, update with replace_file_str when completing items. When writing CSV, use double quotes for commas. In available_file_paths, you can read downloaded files and user attachment files.</file_system>
+<action_rules>
+You are allowed to use a maximum of 1 actions per step. Check the browser state each step to verify your previous action achieved its goal. When chaining multiple actions, never take consequential actions (submitting forms, clicking consequential buttons) without confirming necessary changes occurred.
+</action_rules>
+<output>You must respond with a valid JSON in this exact format:
+{
+  "memory": "Up to 5 sentences of specific reasoning about: Was the previous step successful / failed? What do we need to remember from the current state for the task? Plan ahead what are the best next actions. What's the next immediate goal? Depending on the complexity think longer. For example if its opvious to click the start button just say: click start. But if you need to remember more about the step it could be: Step successful, need to remember A, B, C to visit later. Next click on A.",
+  "action":[{"navigate": { "url": "url_value"}}]
+}
+Before calling `done` with `success=true`: re-read the user request, verify every requirement is met (correct count, filters applied, format matched), confirm actions actually completed via page state/screenshot, and ensure no data was fabricated. If anything is unmet or uncertain, set `success` to `false`.
+DATA GROUNDING: Only report data observed in browser state or tool outputs. Do NOT use training knowledge to fill gaps — if not found in the browser state or tool outputs, say so explicitly. Never fabricate values.
+</output>
+
+
+ user 
+<user_request>
+
+ Go to https://quotes.toscrape.com/.
+ Find the first quote on the page and its author.
+ Finish with done and report only:
+ - quote
+ - author
+ 
+</user_request>
+
+<agent_history>
+Agent initialized
+<step>
+Result
+Found initial url and automatically loaded it. Navigated to https://quotes.toscrape.com/
+</agent_history>
+
+<agent_state>
+<file_system>
+
+</file_system>
+<todo_contents>
+[empty todo.md, fill it when applicable]
+</todo_contents>
+</agent_state>
+<browser_state>
+<page_stats>55 links, 56 interactive, 0 iframes, 235 total elements</page_stats>
+Current tab: B387
+Available tabs:
+Tab B387: https://quotes.toscrape.com/ - quotes.toscrape.com
+
+<page_info>0.0 pages above, 0.0 pages below</page_info>
+
+Interactive elements:
+[Start of page]
+[36]<a />
+	Quotes to Scrape
+[45]<a />
+	Login
+“The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking.”
+by
+Albert Einstein
+[66]<a />
+	(about)
+Tags:
+[74]<a />
+	change
+[77]<a />
+	deep-thoughts
+[80]<a />
+	thinking
+[83]<a />
+	world
+“It is our choices, Harry, that show what we truly are, far more than our abilities.”
+by
+J.K. Rowling
+[98]<a />
+	(about)
+Tags:
+[106]<a />
+	abilities
+[109]<a />
+	choices
+“There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.”
+by
+Albert Einstein
+[124]<a />
+	(about)
+Tags:
+[132]<a />
+	inspirational
+[135]<a />
+	life
+[138]<a />
+	live
+[141]<a />
+	miracle
+[144]<a />
+	miracles
+“The person, be it gentleman or lady, who has not pleasure in a good novel, must be intolerably stupid.”
+by
+Jane Austen
+[159]<a />
+	(about)
+Tags:
+[167]<a />
+	aliteracy
+[170]<a />
+	books
+[173]<a />
+	classic
+[176]<a />
+	humor
+“Imperfection is beauty, madness is genius and it's better to be absolutely ridiculous than absolutely boring.”
+by
+Marilyn Monroe
+[191]<a />
+	(about)
+Tags:
+[199]<a />
+	be-yourself
+[202]<a />
+	inspirational
+“Try not to become a man of success. Rather become a man of value.”
+by
+Albert Einstein
+[217]<a />
+	(about)
+Tags:
+[225]<a />
+	adulthood
+[228]<a />
+	success
+[231]<a />
+	value
+“It is better to be hated for what you are than to be loved for what you are not.”
+by
+André Gide
+[246]<a />
+	(about)
+Tags:
+[254]<a />
+	life
+[257]<a />
+	love
+“I have not failed. I've just found 10,000 ways that won't work.”
+by
+Thomas A. Edison
+[272]<a />
+	(about)
+Tags:
+[280]<a />
+	edison
+[283]<a />
+	failure
+[286]<a />
+	inspirational
+[289]<a />
+	paraphrased
+“A woman is like a tea bag; you never know how strong it is until it's in hot water.”
+by
+Eleanor Roosevelt
+[304]<a />
+	(about)
+Tags:
+[312]<a />
+	misattributed-eleanor-roosevelt
+“A day without sunshine is like, you know, night.”
+by
+Steve Martin
+[327]<a />
+	(about)
+Tags:
+[335]<a />
+	humor
+[338]<a />
+	obvious
+[341]<a />
+	simile
+[354]<a />
+	Next
+Top Ten

@@ -1,0 +1,56 @@
+warning: The `tool.uv.dev-dependencies` field (used in `pyproject.toml`) is deprecated and will be removed in a future release; use `dependency-groups.dev` instead
+INFO     [service] Using anonymized telemetry, see https://docs.browser-use.com/development/monitoring/telemetry.
+INFO     [Agent] \U0001f517 Found URL in task: https://quotes.toscrape.com/, adding as initial action...
+INFO     [Agent] \U0001f4ac Saving conversation to ~\claw-harness\browser-use-poc\browser-use\poc_ollama_conversation.json
+INFO     [Agent] [34m\U0001f3af Task: 
+ Go to https://quotes.toscrape.com/.
+ Find the first quote on the page and its author.
+ Finish with done and report only:
+ - quote
+ - author
+ [0m
+INFO     [Agent] Starting a browser-use agent with version 0.13.3, with provider=ollama and model=qwen2.5:7b-instruct
+INFO     [Agent]   \u25b6\ufe0f   [34mnavigate[0m: [35murl[0m: https://quotes.toscrape.com/, [35mnew_tab[0m: False
+WARNING  [BrowserSession] \u26a0\ufe0f Page readiness timeout (8.0s, 8375ms) for https://quotes.toscrape.com/
+INFO     [tools] \U0001f517 Navigated to https://quotes.toscrape.com/
+INFO     [Agent] 
+
+INFO     [Agent] \U0001f4cd Step 1:
+INFO     [Agent]   \U0001f9e0 Memory: Successfully navigated to the target URL. The first quote and its author need to be identified from the page content. Next, I will locate the first quote and extract the relevant information.
+INFO     [Agent]   \u25b6\ufe0f   [34mnavigate[0m: [35murl[0m: https://quotes.toscrape.com/
+ERROR    [Agent] \u23f0 Step 1 timed out after 60 seconds
+WARNING  [BrowserSession] \u26a0\ufe0f Page readiness timeout (3.0s, 3125ms) for https://quotes.toscrape.com/
+INFO     [Agent] 
+
+INFO     [Agent] \U0001f4cd Step 2:
+ERROR    [Agent] \u23f0 Step 2 timed out after 60 seconds
+INFO     [Agent] 
+
+INFO     [Agent] \U0001f4cd Step 3:
+ERROR    [Agent] \u23f0 Step 3 timed out after 60 seconds
+ERROR    [Agent] \u274c Stopping due to 2 consecutive failures
+INFO     [Agent] 
+INFO     [Agent] Did the Agent not work as expected? Let us fix this!
+INFO     [Agent]    Open a short issue on GitHub: https://github.com/browser-use/browser-use/issues
+INFO     [BrowserSession] \U0001f4e2 on_BrowserStopEvent - Calling reset() (force=True, keep_alive=None)
+INFO     [BrowserSession] [SessionManager] Cleared all owned data (targets, sessions, mappings)
+INFO     [BrowserSession] \u2705 Browser session reset complete
+INFO     [BrowserSession] \u2705 Browser session reset complete
+Traceback (most recent call last):
+  File "C:\Users\marce\claw-harness\browser-use-poc\browser-use\poc_ollama_browser_use.py", line 104, in <module>
+    asyncio.run(main())
+  File "C:\Users\marce\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\marce\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marce\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\marce\claw-harness\browser-use-poc\browser-use\poc_ollama_browser_use.py", line 96, in main
+    print("final_result:", history.final_result())
+  File "C:\Users\marce\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f517' in position 0: character maps to <undefined>
