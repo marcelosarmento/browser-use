@@ -99,7 +99,7 @@ async def main():
 		enable_planning=False,
 		use_judge=False,
 		max_actions_per_step=1,
-		max_history_items=4,
+		max_history_items=6,
 		max_failures=3,
 		llm_timeout=180,
 		step_timeout=120,
